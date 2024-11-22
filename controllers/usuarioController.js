@@ -6,7 +6,7 @@ async function listar() {
 }
 
 async function listarUM(id) {
-  return await DB.execute(`SELECT * FROM ${tabela} WHERE brand_id = ${id};`);
+  return await DB.execute(`SELECT * FROM ${tabela} WHERE usuario_id = ${id};`);
 }
 
 async function logar(data) {
@@ -18,7 +18,7 @@ async function logar(data) {
       throw new Error("Senha é obrigatório");
     }
 
-    const response = await DB.execute(`SELECT * FROM usuario WHERE usuario_email = '${data.email}' AND usuario_senha = '${data.password}';`)
+    const response = await DB.execute(`SELECT * FROM usuario WHERE usuario_email = '${data.email}' AND usuario_password = '${data.password}';`)
     
     if(response.length == 0){
       return {

@@ -81,3 +81,14 @@ FROM (
 ) AS temp;
 
 SELECT COUNT(visitante_id) AS VALUE, visitante_bairro AS NAME FROM visitante WHERE visitante_cidade = 'Fortaleza' GROUP BY visitante_bairro;
+
+CREATE TABLE Visitante (
+    visitante_id INT PRIMARY KEY AUTO_INCREMENT,
+    visitante_nome VARCHAR(100) NOT NULL,
+    visitante_idade INT,
+    visitante_profissao VARCHAR(50),
+    visitante_genero VARCHAR(20),
+    visitante_cidade VARCHAR(100),
+    visitante_bairro VARCHAR(100),
+    visitante_cpf CHAR(15) UNIQUE
+);
